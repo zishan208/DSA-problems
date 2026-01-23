@@ -1,15 +1,15 @@
 class Solution {
-private:
-    bool findAdjacent(const string& s) {
-        for (int i = 0; i < (int)s.length() - 1; i++) {
-            if (s[i] == s[i + 1]) return true;
-        }
-        return false;
-    }
+// private:
+//     bool findAdjacent(const string& s) {
+//         for (int i = 0; i < (int)s.length() - 1; i++) {
+//             if (s[i] == s[i + 1]) return true;
+//         }
+//         return false;
+//     }
 
 public:
     string removeDuplicates(string s) {
-        while (findAdjacent(s)) {
+       
             for (int i = 0; i < (int)s.length() - 1; i++) {
                 if (s[i] == s[i + 1]) {
                     s.erase(i, 2);
@@ -18,7 +18,7 @@ public:
                     else i = -1;            // restart from beginning
                 }
             }
-        }
+        
         return s;
     }
 };
