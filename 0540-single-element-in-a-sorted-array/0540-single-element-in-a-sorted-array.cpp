@@ -1,16 +1,23 @@
+
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
-
-    //ones we get mid then compare it to it right and left index, if anyone equal then proceed next
-      int element=0;
-      for (int i = 0; i < nums.size(); i++)
-      {
-        element=element^nums[i];
-      }
-        
-            return element;
-
+int s=0;
+int e=nums.size()-1;
+            while (s<e)
+            {
+                int mid=s+(e-s)/2;
+                if(mid%2!=0 && nums[mid]==nums[mid-1]){
+                    s=mid+1;
+                }
+                else if (mid%2==0 && nums[mid]==nums[mid+1])
+                {
+                    s=mid+2;
+                }
+                else{
+                    e=mid;
+                }
+        }                   
+        return nums[s];
     }
-
 };
