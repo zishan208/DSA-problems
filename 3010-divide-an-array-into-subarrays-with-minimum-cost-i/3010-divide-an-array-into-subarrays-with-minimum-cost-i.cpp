@@ -7,7 +7,7 @@ public:
 
         sort(nums.begin()+1,nums.end());
    
-       sums=nums[0]+nums[1]+nums[2];
+       sum=nums[0]+nums[1]+nums[2];
        return sum ; 
     }
 };
