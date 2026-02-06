@@ -18,6 +18,7 @@ public:
         };
         //123456789 == n could be anything -----------
         string required="";
+        k--;
         for (int i = n; i>=1; i--)
         {
             int factorial=fact(i-1);
