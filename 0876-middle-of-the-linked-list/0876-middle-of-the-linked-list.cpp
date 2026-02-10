@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-int getLength(node* head){
+int getLength(ListNode* head){
     int len=0;
     while (head!=NULL)
     {
@@ -23,9 +23,13 @@ int getLength(node* head){
     ListNode* middleNode(ListNode* head) {
         int len=getLength(head);
 
-        int element=(len/2)+1;
-
-       return element; 
+        int element=len/2;
+        ListNode* temp=head;
+        while(element--){
+            head=head->next;
+            temp=head;
+        }
+      return temp;
         
     }
 };
