@@ -14,12 +14,15 @@
 
 class Solution {
     private: 
-    int height(TreeNode* root){
+    int solve(TreeNode* root , int &diameter){
             if(root==nullptr) return 0;
-            int lefts=height(root->left);
-            int rights=height(root->right);
-            // here is our answer
-        return max(lefts,rights)+1;
+     int leftHeight = solve(root->left, diameter);
+        int rightHeight = solve(root->right, diameter);
+            diameter=max(diameter,leftHeight+rightHeight);
+
+            return 1+max(leftHeight,rightHeight);
+            
+           
 
     }
     
@@ -30,12 +33,9 @@ class Solution {
     int diameterOfBinaryTree(TreeNode* root) {
     
         if(root==nullptr) return 0;
-                int op1=diameterOfBinaryTree(root->left);
-                int op2=diameterOfBinaryTree(root->right);
-                int op3=height(root->left)+height(root->right);
-
-                return max(max(op1,op2),op3);
-      
+              int diameter=0;
+          solve(root,diameter);
+          return diameter;
 
 
         
