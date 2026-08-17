@@ -30,8 +30,8 @@ class Solution {
     int diameterOfBinaryTree(TreeNode* root) {
     
         if(root==nullptr) return 0;
-                int op1=diameter(root->left);
-                int op2=diameter(root->right);
+                int op1=diameterOfBinaryTree(root->left);
+                int op2=diameterOfBinaryTree(root->right);
                 int op3=height(root->left)+height(root->right);
 
                 return max(max(op1,op2),op3);
