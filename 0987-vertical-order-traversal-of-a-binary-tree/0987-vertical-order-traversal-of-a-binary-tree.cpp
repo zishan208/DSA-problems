@@ -16,14 +16,13 @@ public:
             
             TreeNode* temp_node = temp.first;
             int index = temp.second.first; 
-            int level = temp.second.second; 
+      int level = temp.second.second; 
 
-            // CHANGE 2: Store both level and value
             mpp[index].push_back({level, temp_node->val});
 
             if (temp_node->left) {
                 q.push({temp_node->left, {index - 1, level + 1}});
-            }
+      }
             if (temp_node->right) {
                 q.push({temp_node->right, {index + 1, level + 1}});
             }
@@ -34,16 +33,14 @@ public:
             vector<pair<int, int>> &colData = it.second;
             
        
-            sort(colData.begin(), colData.end(), [](auto &a, auto &b) {
+     sort(colData.begin(), colData.end(), [](auto &a, auto &b) {
                 if (a.first != b.first) return a.first < b.first;
                 return a.second < b.second;
             });
-
-     
-            vector<int> colValues;
-            for (auto &p : colData) {
+   vector<int> colValues;
+             for (auto &p : colData) {
                 colValues.push_back(p.second);
-            }
+       }
             ans.push_back(colValues);
         }
         
