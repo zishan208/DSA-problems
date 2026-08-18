@@ -18,34 +18,29 @@ public:
         TreeNode* req=nullptr;
         
         map<TreeNode*, TreeNode*> child_parent;
-        //1.find parent
-        //found req
+  
         queue<TreeNode*> q;
         q.push(root);
         child_parent[root]=nullptr;
         while(!q.empty()){
         
-            TreeNode* temp=q.front();
+    TreeNode* temp=q.front();
             q.pop();
             if(temp->val==start) req=temp;
 
             if(temp->left){
                 child_parent[temp->left]=temp;
-                q.push(temp->left);
+         q.push(temp->left);
             }
             if(temp->right){
                 child_parent[temp->right]=temp;
                 q.push(temp->right);
             }
         }
-        //parent pushing end here
 
-        //find node;
 
         map<TreeNode*, bool> visited;
 
-        //each node have three option
-       //use q again;
         int ans=0;
 
         q.push(req);
@@ -57,10 +52,7 @@ public:
         for(int i=0;i<size;i++){
             TreeNode* temp=q.front();
             q.pop();
-           
-
-
-            if(temp->left && !visited[temp->left]){ 
+      if(temp->left && !visited[temp->left]){ 
                 q.push(temp->left);
                 isAny=true;
                 visited[temp->left]=true;
