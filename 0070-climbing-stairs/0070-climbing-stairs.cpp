@@ -9,7 +9,7 @@ private:
 
         if(dp[step_count]!=-1) return dp[step_count];
 
-       dp[step_count] = (pas(n, step_count + 1, dp) + pas(n, step_count + 2, dp)) ;
+       dp[step_count] = pas(n, step_count + 1, dp) + pas(n, step_count + 2, dp) ;
 
 
         return dp[step_count];
