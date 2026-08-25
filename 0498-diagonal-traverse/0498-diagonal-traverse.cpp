@@ -27,6 +27,7 @@ public:
                 reverse(ans[i].begin(),ans[i].end());
             }
             fans.insert(fans.end(),ans[i].begin(),ans[i].end());
+            ans[i].clear();
         }
      return fans;   
     }
