@@ -60,7 +60,87 @@
 
 
 
+// class Solution {
+// public:
+//     int numIslands(vector<vector<char>>& grid) {
+//         int row = grid.size();
+//         int col = grid[0].size();
+        
+      
+//         int count = 0;
+
+//         for (int i = 0; i < row; i++) {
+//      for (int j = 0; j < col; j++) {
+//       if (grid[i][j] == '1') {
+//           queue<pair<int, int>> q;
+                    
+//                     q.push({i, j});
+//                     grid[i][j]=0;
+
+//                     while (!q.empty()) {
+//                         auto it = q.front();
+//                        q.pop();
+
+//                         int x = it.first;
+//                         int y = it.second;
+//                         if (x - 1 >= 0 && grid[x - 1][y] == '1' ) {
+//                             grid[x - 1][y] = '0';
+//                          q.push({x - 1, y});
+//                         }
+//                         if (x + 1 < row && grid[x + 1][y] == '1' ) {
+//                       grid[x + 1][y] = '0';
+//                             q.push({x + 1, y});
+//                         }
+//                         if (y + 1 < col && grid[x][y + 1] == '1' ) {
+//                       grid[x][y + 1] = '0';
+//                             q.push({x, y + 1});
+//                         }
+//                         if (y - 1 >= 0 && grid[x][y - 1] == '1' ) {
+//                             grid[x][y - 1] = '0';
+//                             q.push({x, y - 1});
+//                         }
+//                     }
+//                     count++;
+//                 }
+//             }
+//         }
+//         return count;
+//     }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Solution {
+    private:
+    void dfs(vector<vector<char>>& grid,int i, int j,int row,int col){
+        if(grid[i][j]=='0') return;
+
+        
+        if(grid[i][j]=='1') {
+        grid[i][j]='0';
+        if(j+1<col) dfs(grid,i,j+1,row,col);
+        if(j-1>=0) dfs(grid,i,j-1,row,col);
+        if(i+1<row) dfs(grid,i+1,j,row,col);
+        if(i-1>=0) dfs(grid,i-1,j,row,col);
+
+
+        }
+        
+
+    }
 public:
     int numIslands(vector<vector<char>>& grid) {
         int row = grid.size();
@@ -72,35 +152,9 @@ public:
         for (int i = 0; i < row; i++) {
      for (int j = 0; j < col; j++) {
       if (grid[i][j] == '1') {
-          queue<pair<int, int>> q;
-                    
-                    q.push({i, j});
-                    grid[i][j]=0;
-
-                    while (!q.empty()) {
-                        auto it = q.front();
-                       q.pop();
-
-                        int x = it.first;
-                        int y = it.second;
-                        if (x - 1 >= 0 && grid[x - 1][y] == '1' ) {
-                            grid[x - 1][y] = '0';
-                         q.push({x - 1, y});
-                        }
-                        if (x + 1 < row && grid[x + 1][y] == '1' ) {
-                      grid[x + 1][y] = '0';
-                            q.push({x + 1, y});
-                        }
-                        if (y + 1 < col && grid[x][y + 1] == '1' ) {
-                      grid[x][y + 1] = '0';
-                            q.push({x, y + 1});
-                        }
-                        if (y - 1 >= 0 && grid[x][y - 1] == '1' ) {
-                            grid[x][y - 1] = '0';
-                            q.push({x, y - 1});
-                        }
-                    }
-                    count++;
+        dfs(grid,i,j,row,col);
+        count++;
+          
                 }
             }
         }
