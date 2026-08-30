@@ -6,7 +6,7 @@ public:
 
         unordered_map<string,vector<string>> um;
 
-        for(string s: strs){
+        for(string &s: strs){
             string temp=s;
             sort(temp.begin(),temp.end());
             um[temp].push_back(s);
