@@ -14,7 +14,7 @@ public:
         }
           vector<vector<string>> ans;
 
-        for(auto it: um){
+        for(auto &it: um){
             
             ans.push_back(it.second);
 
