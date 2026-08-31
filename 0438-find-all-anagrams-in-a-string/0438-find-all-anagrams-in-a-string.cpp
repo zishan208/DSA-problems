@@ -41,7 +41,7 @@ public:
         vector<int> ans;
         if(len1<len2) return ans;
         vector<int> pc(26,0);
-        for(char &c: p){
+        for(char c: p){
             int index=c-'a';
             pc[index]++;
         }
