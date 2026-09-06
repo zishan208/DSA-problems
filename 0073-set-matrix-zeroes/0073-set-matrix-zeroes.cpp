@@ -6,7 +6,7 @@ public:
         vector<bool> zeroRow(row, false);
         vector<bool> zeroCol(col, false);
 
-        // First pass: mark rows and columns
+   
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 if (matrix[i][j] == 0) {
@@ -16,7 +16,7 @@ public:
             }
         }
 
-        // Second pass: set zeroes
+
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 if (zeroRow[i] || zeroCol[j]) {
