@@ -5,7 +5,7 @@
 
 class Solution {
 private:
-    bool check(vector<vector<char>>& board, string word, int i, int j, int index) {
+    bool check(vector<vector<char>>& board, string &word, int i, int j, int index) {
 
         if (index == word.length()) return true;
 
