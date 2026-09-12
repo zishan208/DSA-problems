@@ -4,8 +4,8 @@ public:
         int ans = 0;
         int start = n - k;
         if (start < 1) start = 1;
-        int end = n + k;
-        for (int x = start; x <= end; ++x) {
+       
+        for (int x = start; x <= n+k; ++x) {
             if ((n & x) == 0) ans += x;
         }
         return ans;
