@@ -1,17 +1,8 @@
 class Solution {
-    private:
-    int factorial(int n){
-        if(n==0) return 1;
-    return n*factorial(n-1);
-    }
-    int c(int n, int i ){
-
-        return factorial(n)/(factorial(i)*factorial(n-i));
-
-    }
 public:
     vector<vector<int>> generate(int numRows) {
 
+        
         vector<vector<int>> ans;
         
         ans.push_back({1});
