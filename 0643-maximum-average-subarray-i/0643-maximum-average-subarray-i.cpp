@@ -24,7 +24,7 @@ public:
                 s++;
                 sum += nums[i];
 
-                ans = max(ans, (double)sum / k);
+                ans = max(ans, (double)sum/ k);
             }
         
 
