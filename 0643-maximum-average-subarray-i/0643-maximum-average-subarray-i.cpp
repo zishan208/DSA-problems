@@ -6,22 +6,27 @@ public:
         long long sum = 0;
       double ans = 0.0;
 
-        for (int i = 0; i < size; i++) {
-            if (i < k) {
+
+      for (int i = 0; i < k; i++) {
+         
                 sum += nums[i];
 
 
                 if (i == k - 1) {
                     ans = (double)sum / k;
                 }
-            } else {
+            }
+                
+
+        for (int i = k; i < size; i++) {
+          
                 sum -= nums[s];
                 s++;
                 sum += nums[i];
 
                 ans = max(ans, (double)sum / k);
             }
-        }
+        
 
         return ans;
     }
