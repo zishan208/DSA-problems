@@ -1,29 +1,25 @@
 class Solution {
-    static bool cmp(pair<int,int> a, pair<int,int> b) {
-        return a.second < b.second;
+  static bool cmp(const vector<int>& a, const vector<int>& b) {
+        return a[1] < b[1];
     }
 public:
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
         int total = intervals.size();
         if (total == 0) return 0; 
 
-        vector<pair<int,int>> p;
+        
 
-        for (auto& c : intervals) {   
-            int first = c[0];
-            int second = c[1];
-            p.push_back(make_pair(first, second));
-        }
+     
 
-        sort(p.begin(), p.end(), cmp); 
+        sort(intervals.begin(), intervals.end(), cmp); 
 
         int count = 1;
-        int endNum = p[0].second; 
+        int endNum = intervals[0][1]; 
 
         for (int i = 1; i < total; i++) {
-            if (p[i].first >= endNum) { 
+            if (intervals[i][0] >= endNum) { 
                 count++;
-                endNum = p[i].second;
+                endNum = intervals[i][1];
             }
         }
 
