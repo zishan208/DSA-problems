@@ -35,12 +35,11 @@ public:
     bool canJump(vector<int>& nums) {
 
 
-        int n=nums.size();
         int max_cover=0;
-        for(int i=0 ; i<n ;i++){
+        for(int i=0 ; i<nums.size() ;i++){
             if (i > max_cover) return false;
 
-            if(max_cover>=n-1) return true;
+            if(max_cover>=nums.size()-1) return true;
 
             max_cover= max(max_cover,i+nums[i]);
 
