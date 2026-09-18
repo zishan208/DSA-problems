@@ -44,22 +44,23 @@
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
-        int last[26] = {0}; // har character ka last index
+        int last[26] = {0}; 
         int n = s.size();
 
-        // Har character ka last occurrence store karo
+
         for (int i = 0; i < n; i++) {
             last[s[i] - 'a'] = i;
         }
 
+
         vector<int> ans;
-        int start = 0, end = 0;
+        int p = 0, e = 0;
 
         for (int i = 0; i < n; i++) {
-            end = max(end, last[s[i] - 'a']); // current partition ka end expand karo
-            if (i == end) {                   // partition complete
-                ans.push_back(end - start + 1);
-                start = i + 1;                // next partition start
+            e = max(e, last[s[i] - 'a']);
+            if (i == e) {              
+                ans.push_back(e - p + 1);
+                p = i + 1;            
             }
         }
         return ans;
