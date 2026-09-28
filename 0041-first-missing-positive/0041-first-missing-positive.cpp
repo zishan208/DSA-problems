@@ -14,11 +14,14 @@ public:
         }
 
         if(mini>1) return 1;
+
         for(int i=1;i<=maxi;i++){
             if(!c[i]) return i;
+            
         }
 
         return maxi+1;
+
         
     }
 };
