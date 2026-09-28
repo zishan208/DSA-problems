@@ -8,59 +8,43 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-
-
 class Solution {
-private:
-    ListNode* reverses(ListNode* first) {
-        ListNode* current = first;
-        ListNode* prev = nullptr;
-        ListNode* forward = nullptr;
-
-        while (current != nullptr) {
-            forward = current->next;
-            current->next = prev;
-            prev = current;
-            current = forward;
-        }
-        return prev; // new head
-    }
-
-
-    ListNode* add(ListNode* l1, ListNode* l2) {
-        ListNode* dummy = new ListNode(0);
-        ListNode* tail = dummy;
-        int carry = 0;
-
-        while (l1 != nullptr || l2 != nullptr || carry != 0) {
-            int sum = carry;
-            if (l1 != nullptr) {
-                sum += l1->val;
-                l1 = l1->next;
-            }
-            if (l2 != nullptr) {
-                sum += l2->val;
-                l2 = l2->next;
-            }
-
-            carry = sum / 10;
-            tail->next = new ListNode(sum % 10);
-            tail = tail->next;
-        }
-
-        return dummy->next;
-    }
-
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        // Step 1: Reverse both lists
-       // l1 = reverses(l1);
-        //l2 = reverses(l2);
 
-        // Step 2: Add them
-        ListNode* sum = add(l1, l2);
+            ListNode* ans=new ListNode();
+            ListNode* head=ans;
+            
 
-        // Step 3: Reverse result to restore proper order
-        return sum;
+            ListNode* curr1=l1;
+            ListNode* curr2=l2;
+
+            int carry=0;
+
+            while(curr1 || curr2 || carry){
+
+                int sum=0;
+                if(curr1){
+                    sum+=curr1->val;
+                    curr1=curr1->next;
+                }
+                if(curr2){
+                    sum+=curr2->val;
+                    curr2=curr2->next;
+                }
+
+                ans->val=(sum+carry)%10;
+                carry=(sum+carry)/10;
+
+                if(curr1 || curr2 || carry){
+                    ans->next=new ListNode();
+                    ans=ans->next;
+                }
+                
+                
+
+            }
+           return head;
+        
     }
 };
