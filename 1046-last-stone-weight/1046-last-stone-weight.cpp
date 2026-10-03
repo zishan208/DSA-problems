@@ -32,28 +32,24 @@ public:
         sort(stones.begin(), stones.end());
         
         while (n > 1) {
-            // Last two stones (heaviest)
             int i = n - 1;
             int j = n - 2;
             
             if (stones[i] == stones[j]) {
-                // Dono destroy ho gaye
                 n -= 2;
             } else {
-                // Difference nikaalo
                 int diff = stones[i] - stones[j];
                 
-                // Dono ko hatao, diff ko insert karo
-                n -= 2; // temporarily reduce size
+                n -= 2;
                 
-                // Insert diff into sorted array (0 to n-1)
+            
                 int k = n - 1;
                 while (k >= 0 && stones[k] > diff) {
                     stones[k + 1] = stones[k];
                     k--;
                 }
                 stones[k + 1] = diff;
-                n++; // ek stone add hua
+                n++; 
             }
         }
         
