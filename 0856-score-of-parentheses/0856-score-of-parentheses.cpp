@@ -3,7 +3,7 @@ public:
     int scoreOfParentheses(string s) {
         stack<int> st;
 
-        for (char c : s) {
+        for (char &c : s) {
             if (c == '(') {
                 st.push(-1); 
             } else {
