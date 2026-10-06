@@ -4,15 +4,15 @@ public:
         int n=s.length();
         stack<char> st;
 
-        for(char &c: s){
+        for(int i=0;i<n;i++){
             
 
-            if(c==')'  &&  (!st.empty() && st.top()=='(')){
+            if(s[i]==')'  &&  (!st.empty() && st.top()=='(')){
             st.pop();
 
             
             }else{
-                st.push(c);
+                st.push(s[i]);
             }
         }
 
